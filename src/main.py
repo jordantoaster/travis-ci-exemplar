@@ -1,6 +1,6 @@
 import numpy as np
 
-def main() -> list:
+def main() -> np.ndarray:
     """
     Function Implementation is unimportant for this repository.
     """
