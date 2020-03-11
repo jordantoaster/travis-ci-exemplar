@@ -5,3 +5,9 @@ initialise-environment:
 test:
 	@ echo "Running Test Suite"
 	@ python -m pytest
+
+image:
+	@ docker build --tag $(IMAGE) .
+
+push-image:
+	docker push $(IMAGE)
