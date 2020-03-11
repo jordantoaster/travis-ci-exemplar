@@ -1,8 +1,6 @@
 sudo: required
 language: python
 python:
-  - "3.4"
-  - "3.5"
   - "3.6"      
   - "3.7"
   - "3.8"
@@ -12,5 +10,7 @@ install:
   - pip install -r requirements.txt
 script:
   - make test
-  - docker build --tag travis-ci-exemplar-image .
-  - docker run travis-ci-exemplar-image
+  - make image
+after_success:
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+  - make push-image
