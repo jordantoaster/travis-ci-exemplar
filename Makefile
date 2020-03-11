@@ -7,7 +7,7 @@ test:
 	@ python -m pytest
 
 image:
-	@ docker build --tag travis-ci-exemplar-image .
+	@ docker build --tag $(IMAGE) .
 
 push-image:
 	docker push $(IMAGE)
