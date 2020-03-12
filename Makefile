@@ -7,8 +7,7 @@ test:
 	@ python -m pytest
 
 type-check:
-	@ cd src
-	@ mypy .
+	@ cd src && mypy .
 
 image:
 	@ docker build --tag $(IMAGE) .
