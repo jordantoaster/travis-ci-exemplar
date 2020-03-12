@@ -6,6 +6,10 @@ test:
 	@ echo "Running Test Suite"
 	@ python -m pytest
 
+type-check:
+	@ cd src
+	@ mypy .
+
 image:
 	@ docker build --tag $(IMAGE) .
 
