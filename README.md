@@ -35,3 +35,4 @@ Upon each push to the remote respitory a Travis CI build will initiate. Within t
 - Run Only on PR
 - AWS Integration to EC2
 - Docker Compose
+- Change to use the deploy phase in travis rather than after success.
