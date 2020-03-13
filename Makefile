@@ -1,4 +1,4 @@
-TAG := $$(git log -1 --pretty=%!H(MISSING))
+TAG := ${shell git rev-parse --short=5 HEAD}
 
 initialise-environment:
 	@ echo "Creating a Virtual Environment"
@@ -12,9 +12,8 @@ type-check:
 	@ cd src && mypy .
 
 build-image:
-	@ docker build --tag $(IMAGE):${TAG} .
-	@ docker build --tag $(IMAGE):latest .
+	@ docker build -t $(IMAGE):$(TAG) -t $(IMAGE):latest .
 
 push-image:
-	docker push $(IMAGE):${TAG}
-	docker push $(IMAGE):latest
+	@ docker push $(IMAGE):$(TAG)
+	@ docker push $(IMAGE):latest
