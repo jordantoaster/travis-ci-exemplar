@@ -32,7 +32,6 @@ Upon each push to the remote respitory a Travis CI build will initiate. Within t
 
 ## TODO
 - Develop in Docker.
-- Docker Tagging / Versioning.
 - Run Only on PR
 - AWS Integration to EC2
-- Verify build stops if tests fail.
+- Docker Compose
