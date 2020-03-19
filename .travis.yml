@@ -18,4 +18,5 @@ jobs:
     - stage: Push to Docker Hub
       script:
         - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        - make build-image
         - make push-image
