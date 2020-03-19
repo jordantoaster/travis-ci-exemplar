@@ -5,17 +5,21 @@ services:
   - docker
 install:
   - pip install -r requirements.txt
+stages:
+  - test-code
+  - test-image
+  - deploy
 jobs:
   include:
-    - stage: Test and Build Docker Image
+    - stage: test-code
       script:
         - make test
         - make type-check
-        - make build-image
-    - stage: Run Image - Verify Behaviour
+    - stage: test-image
       script:
+        - make build-image
         - make run-image
-    - stage: Push to Docker Hub
+    - stage: deploy
       script:
         - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         - make build-image
