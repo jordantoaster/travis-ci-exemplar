@@ -1,10 +1,6 @@
 sudo: required
 language: python
 os: linux
-python:
-  - "3.6"      
-  - "3.7"
-  - "3.8"
 services:
   - docker
 install:
@@ -17,8 +13,6 @@ jobs:
         - make type-check
         - make build-image
     - stage: Run Image - Verify Behaviour
-      script:
-        - make run-image
       script:
         - make run-image
     - stage: Push to Docker Hub
