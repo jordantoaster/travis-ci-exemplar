@@ -32,4 +32,4 @@ Upon each push to the remote respitory a Travis CI build will initiate. Within t
 
 ## TODO
 - Develop in Docker.
-test
+tests
