@@ -1,17 +1,28 @@
 sudo: required
 language: python
+python: 3.7
 os: linux
-python:
-  - "3.6"      
-  - "3.7"
-  - "3.8"
 services:
   - docker
 install:
   - pip install -r requirements.txt
-script:
-  - make test
-  - make image
-after_success:
-  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-  - make push-image
+stages:
+  - test-code
+  - test-image
+  - deploy
+jobs:
+  include:
+    - stage: test-code
+      script:
+        - make test
+        - make type-check
+    - stage: test-image
+      script:
+        - make build-image
+        - make run-image
+    - stage: deploy
+      if: branch = master
+      script:
+        - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        - make build-image
+        - make push-image

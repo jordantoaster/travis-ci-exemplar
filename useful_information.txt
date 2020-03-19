@@ -1,0 +1,1 @@
+- Each of the 'Jobs' in a 'travis.yml' file run in a seperate container, therefore I need to build in two stages.

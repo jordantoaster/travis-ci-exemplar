@@ -18,7 +18,7 @@ This code base contains an example that demonstrates how Travis CI can be applie
 
 ``DOCKER_PASSWORD=???``
 
-``IMAGE=jordantoaster/travis-ci-exemplar``
+``IMAGE=<username>/<image-name>``
 
 3. At the project root, run: 
 
@@ -32,5 +32,3 @@ Upon each push to the remote respitory a Travis CI build will initiate. Within t
 
 ## TODO
 - Develop in Docker.
-- Docker Tagging / Versioning.
-- Run Only on PR
