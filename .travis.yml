@@ -1,5 +1,6 @@
 sudo: required
 language: python
+python: 3.7
 os: linux
 services:
   - docker
@@ -11,7 +12,6 @@ stages:
   - deploy
 jobs:
   include:
-    - python: 3.7
     - stage: test-code
       script:
         - make test
@@ -21,6 +21,7 @@ jobs:
         - make build-image
         - make run-image
     - stage: deploy
+      if: branch = master
       script:
         - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         - make build-image
