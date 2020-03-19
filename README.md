@@ -33,4 +33,3 @@ Upon each push to the remote respitory a Travis CI build will initiate. Within t
 ## TODO
 - Develop in Docker.
 - Run Only on PR
-- Change to use the deploy phase in travis rather than after success.

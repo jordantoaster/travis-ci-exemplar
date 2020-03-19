@@ -11,6 +11,7 @@ stages:
   - deploy
 jobs:
   include:
+    - python: 3.7
     - stage: test-code
       script:
         - make test
