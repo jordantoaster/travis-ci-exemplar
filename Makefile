@@ -14,6 +14,9 @@ type-check:
 build-image:
 	@ docker build -t $(IMAGE):$(TAG) -t $(IMAGE):latest .
 
+run-image:
+	@ docker run --rm travis-ci-exemplar-image:latest
+
 push-image:
 	@ docker push $(IMAGE):$(TAG)
 	@ docker push $(IMAGE):latest

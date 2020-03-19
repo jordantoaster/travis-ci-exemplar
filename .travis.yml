@@ -9,10 +9,19 @@ services:
   - docker
 install:
   - pip install -r requirements.txt
-script:
-  - make test
-  - make type-check
-  - make build-image
-after_success:
-  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-  - make push-image
+jobs:
+  include:
+    - stage: Test and Build Docker Image
+      script:
+        - make test
+        - make type-check
+        - make build-image
+    - stage: Run Image - Verify Behaviour
+      script:
+        - make run-image
+      script:
+        - make run-image
+    - stage: Push to Docker Hub
+      script:
+        - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        - make push-image
