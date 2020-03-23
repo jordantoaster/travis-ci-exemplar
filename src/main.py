@@ -8,3 +8,4 @@ def main() -> np.ndarray:
 
 # Entry point to execute Python Code.
 print(main())
+print('DONE')
