@@ -12,7 +12,7 @@ This code base contains an example that demonstrates how Travis CI can be applie
 <https://github.com/marketplace/travis-ci>
 
 
-2. Add Required environment variables to the TravisCI CLI or web application, as per your preference. These need configured with your personal DockerHub details and desired output Docker image name.
+2. Add Required environment variables to the TravisCI CLI or web application, as per your preference. These need configured with your personal DockerHub details and desired Docker image name.
 
 ``DOCKER_USERNAME=???``
 
@@ -29,7 +29,3 @@ This will setup the local virtual environment with required depedencies, if you 
 ## Build
 
 Upon each push to the remote respitory a Travis CI build will initiate. Within the Github UI, you will be able to navigate to the Travis CI web GUI to see the build results via the Github 'checks' functionality, to see the results of a build else you can rely on the traditional ``green tick`` or ``red x`` indicators.
-
-## TODO
-- Develop in Docker.
-- Only deploy on master when merged, not on PR.
