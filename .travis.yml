@@ -21,7 +21,7 @@ jobs:
         - make build-image
         - make run-image
     - stage: deploy
-      if: [[ $TRAVIS_PULL_REQUEST = "false" && $TRAVIS_BRANCH = "master" ]]
+      if: [ $TRAVIS_PULL_REQUEST = "false" && $TRAVIS_BRANCH = "master" ]
       script:
         - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         - make build-image
